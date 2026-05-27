@@ -1,0 +1,529 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* MENU */
+
+header{
+    width: 100%;
+    background-color: #2e5e3e;
+    padding: 15px;
+}
+
+.menu-icon{
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+nav{
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* INTRODUÇÃO */
+
+.intro-site{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.intro-site h1{
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.intro-site h2{
+    max-width: 700px;
+
+    font-size: 20px;
+    line-height: 1.5;
+
+    font-weight: normal;
+
+    margin-bottom: 40px;
+}
+
+/* SLIDER */
+
+.slider{
+    width: 90%;
+    max-width: 900px;
+
+    height: 500px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    margin-bottom: 40px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.slide{
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+
+    transition: opacity 1s;
+}
+
+.slide.active{
+    opacity: 1;
+}
+
+/* BOTÕES */
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.buttons button{
+
+    width: 300px;
+    height: 80px;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: #2e5e3e;
+
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.buttons button:hover{
+    background-color: #3f7d52;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px){
+
+    .intro-site h1{
+        font-size: 38px;
+    }
+
+    .intro-site h2{
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .slider{
+        height: 250px;
+    }
+
+    .buttons button{
+        width: 250px;
+        height: 70px;
+
+        font-size: 18px;
+    }
+
+    nav a{
+        font-size: 16px;
+    }
+
+}
+
+/* pagina 2 */
+
+/* EXPERIÊNCIAS */
+body{
+    background-color: #dde9dd;
+    
+}
+
+.categoria{
+    padding: 50px 20px;
+}
+
+.categoria h1{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.categoria-texto{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+/* CARD */
+
+.card-local{
+
+    background-color: rgb(255, 255, 255);
+
+    max-width: 1000px;
+
+    margin: auto;
+    margin-bottom: 40px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.card-local h2{
+    margin-bottom: 20px;
+}
+
+/* GALERIA */
+
+.galeria-container{
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.galeria{
+
+    display: flex;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.galeria::-webkit-scrollbar{
+    display: none;
+}
+
+.galeria img{
+
+    width: 300px;
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    flex-shrink: 0;
+}
+
+/* SETAS */
+
+.seta{
+
+    border: none;
+
+    background-color: #2e5e3e;
+
+    color: white;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+/* TEXTOS */
+
+.card-local p{
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* BOTÃO */
+
+.avaliar{
+
+    margin-top: 15px;
+
+    border: none;
+
+    background-color: #2e5e3e;
+
+    color: white;
+
+    padding: 15px 25px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+/* COMENTÁRIOS */
+
+.abrir-comentarios{
+
+    margin-top: 20px;
+
+    border: none;
+
+    background-color: #2e5e3e;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+.area-comentarios{
+
+    display: none;
+
+    margin-top: 20px;
+
+    background-color: #f5f5f5;
+
+    padding: 20px;
+
+    border-radius: 15px;
+}
+
+.comentario{
+
+    background-color: white;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+}
+
+.input-comentario{
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+
+    margin-top: 15px;
+}
+
+.enviar-comentario{
+
+    margin-top: 15px;
+
+    border: none;
+
+    background-color: #2e5e3e;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+/* AÇÕES DO CARD */
+
+.acoes-card{
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+/* BOTÃO MAPS */
+
+.maps-link{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    background-color: #dde9dd;
+
+    border-radius: 10px;
+
+    color: #2e5e3e;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+.maps-link:hover{
+
+    background-color: #cfe0cf;
+
+    transform: scale(1.03);
+}
+
+.site-link{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    background-color: #dde9dd;
+
+    border-radius: 10px;
+
+    color: #2e5e3e;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+.site-link:hover{
+    background-color: #cfe0cf;
+
+    transform: scale(1.03);
+
+}
+
+footer{
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #2e5e3e;
+  font-size: 14px;
+}
+
+/*responsividade*/
+@media (max-width: 768px) {
+
+    /* TÍTULO */
+    .categoria h1{
+        font-size: 32px;
+    }
+
+    .categoria-texto{
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    /* CARD */
+    .card-local{
+        width: 95%;
+        padding: 18px;
+    }
+
+    /* GALERIA */
+    .galeria-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seta{
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .galeria img{
+        width: 250px;
+        height: 170px;
+    }
+
+    /* BOTÕES */
+    .acoes-card{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .avaliar,
+    .abrir-comentarios{
+        width: 100%;
+    }
+
+    /* LINKS */
+    .maps-link,
+    .site-link{
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* COMENTÁRIOS */
+    .area-comentarios{
+        padding: 15px;
+    }
+
+    .input-comentario{
+        font-size: 14px;
+    }
+}
