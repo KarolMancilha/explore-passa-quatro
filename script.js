@@ -159,7 +159,7 @@ function toggleMenu(){
         menu.style.display = "flex";
     }
 }
-
+window.toggleMenu = toggleMenu;
 /* GALERIAS */
 
 document.addEventListener("DOMContentLoaded", () => {
