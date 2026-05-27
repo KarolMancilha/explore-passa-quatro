@@ -1106,7 +1106,9 @@ async function carregarComentarios(localIndex){
 
     const lista = listas[localIndex];
 
-    lista.innerHTML = "";
+    if(lista.dataset.carregado) return;
+
+     lista.dataset.carregado = true;
 
     const querySnapshot = await getDocs(collection(db, "comentarios"));
 
