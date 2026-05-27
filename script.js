@@ -1,3 +1,25 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyBNqyVC6uG53j0R-OfbWkQpTR6tm9rqFM4",
+  authDomain: "explore-passa-quatro.firebaseapp.com",
+  projectId: "explore-passa-quatro",
+  storageBucket: "explore-passa-quatro.firebasestorage.app",
+  messagingSenderId: "348978154042",
+  appId: "1:348978154042:web:2e71ce4ef51d0162104303",
+  measurementId: "G-EVZJ4RDRBM"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
 function toggleMenu(){
 
     const menu = document.getElementById("menu");
@@ -54,13 +76,15 @@ botoesComentarios.forEach((botao) => {
 
 });
 
-/* ENVIAR COMENTÁRIO */
+/* FIREBASE COMENTÁRIOS */
 
 const botoesEnviar = document.querySelectorAll(".enviar-comentario");
 
-botoesEnviar.forEach((botao) => {
+botoesEnviar.forEach((botao, index) => {
 
-    botao.addEventListener("click", () => {
+    carregarComentarios(index);
+
+    botao.addEventListener("click", async () => {
 
         const area = botao.parentElement;
 
@@ -68,29 +92,59 @@ botoesEnviar.forEach((botao) => {
 
         const inputComentario = area.querySelector(".input-comentario");
 
-        const lista = area.querySelector(".lista-comentarios");
+        if (
+            inputNome.value.trim() !== "" &&
+            inputComentario.value.trim() !== ""
+        ) {
 
-        if (inputNome.value.trim() !== "" && inputComentario.value.trim() !== "") {
+            await addDoc(collection(db, "comentarios"), {
+                local: index,
+                nome: inputNome.value,
+                comentario: inputComentario.value
+            });
+
+            inputNome.value = "";
+            inputComentario.value = "";
+
+            carregarComentarios(index);
+        }
+
+    });
+
+});
+
+async function carregarComentarios(localIndex){
+
+    const listas = document.querySelectorAll(".lista-comentarios");
+
+    const lista = listas[localIndex];
+
+    lista.innerHTML = "";
+
+    const querySnapshot = await getDocs(collection(db, "comentarios"));
+
+    querySnapshot.forEach((doc) => {
+
+        const dados = doc.data();
+
+        if(dados.local == localIndex){
 
             const novoComentario = document.createElement("div");
 
             novoComentario.classList.add("comentario");
 
             novoComentario.innerHTML = `
-                <strong>Visitante:</strong>
-                <strong>${inputNome.value}:</strong>
-                <p>${inputComentario.value}</p>
+                <strong>${dados.nome}:</strong>
+                <p>${dados.comentario}</p>
             `;
 
             lista.appendChild(novoComentario);
-
-            input.value = "";
 
         }
 
     });
 
-});
+}
 /* MENU */
 
 function toggleMenu(){
