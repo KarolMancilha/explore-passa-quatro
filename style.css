@@ -94,7 +94,7 @@ nav a{
     width: 90%;
     max-width: 900px;
 
-    height: 500px;
+    aspect-ratio: 16/9;
 
     position: relative;
 
@@ -111,7 +111,7 @@ nav a{
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
 
     position: absolute;
     top: 0;
@@ -120,6 +120,8 @@ nav a{
     opacity: 0;
 
     transition: opacity 1s;
+
+    display: block;
 }
 
 .slide.active{
@@ -171,10 +173,6 @@ nav a{
     .intro-site h2{
         font-size: 16px;
         padding: 0 10px;
-    }
-
-    .slider{
-        height: 250px;
     }
 
     .buttons button{
